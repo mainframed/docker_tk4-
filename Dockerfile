@@ -26,13 +26,16 @@ RUN rm -rf /tk4-/hercules/darwin && \
     rm -rf /tk4-/hercules_SDL && \
     rm -rf /tk4-/ctca_demo      
 RUN rm -f /tk4-/activate_SDL && \
-    rm -f /tk4-/activate_SD.bat
+    rm -f /tk4-/activate_SDL.bat
 RUN rm -f /tk4-/deactivate_SDL && \
     rm -f /tk4-/deactivate_SDL.bat 
 RUN rm -f /tk4-/mvs && \
+    rm -f /tk4-/mvs.bat && \
+    rm -f /tk4-/mvs.bat_pre_SDL && \
     rm -f /tk4-/mvs_ipl && \
     rm -f /tk4-/mvs_osx && \
     rm -f /tk4-/mvs_pre_SDL
+RUN rm -rf /tk4-/start_herc_pre_SDL
 
 RUN apt-get -y purge unzip && \
     apt-get -y autoclean && apt-get -y autoremove && \
@@ -48,6 +51,6 @@ ENV LD_LIBRARY_PATH hercules/linux/64/lib:hercules/linux/64/lib/hercules:$LD_LIB
 ENV HERCULES_RC scripts/ipl.rc
 
 VOLUME [ "/tk4-/conf","/tk4-/local_conf","/tk4-/local_scripts","/tk4-/prt","/tk4-/dasd","/tk4-/pch","/tk4-/jcl","tk4-/log" ]
-CMD ["hercules","-f","conf/tk4-.cnf",">log/3033.log"]
+CMD ["hercules","-f","conf/tk4-.cnf"]
 
 EXPOSE 3270 8038
