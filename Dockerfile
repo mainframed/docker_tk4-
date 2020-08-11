@@ -15,10 +15,19 @@ RUN unzip -o sdl_latest.zip && \
 RUN echo "CONSOLE">/tk4-/unattended/mode
 RUN rm -rf /tk4-/hercules/darwin && \
     rm -rf /tk4-/hercules/windows && \
+    rm -rf /tk4-/hercules/linux/32 && \
+    rm -rf /tk4-/hercules/linux/arm && \
+    rm -rf /tk4-/hercules/linux/arm_softfloat && \
+    rm -rf /tk4-/hercules/linux/aarch64 && \
     rm -rf /tk4-/hercules/source && \
-    rm -rf /tk4-/hercules_SDL/darwin && \
-    rm -rf /tk4-/hercules_SDL/windows && \
-    rm -rf /tk4-/hercules_SDL/source
+    rm -rf /tk4-/hercules/external_packages_binaries && \
+    rm -rf /tk4-/hercules_pre_SDL && \
+    rm -rf /tk4-/hercules_SDL && \
+    rm -rf /tk4-/ctca_demo && \
+    rm -f /tk4-/*.bat && \
+    rm -f /tk4-/*pre_SDLt && \
+    rm -f /tk4-/activate && \
+    rm -f /tk4-/deactivate
 RUN apt-get -y purge unzip && \
     apt-get -y autoclean && apt-get -y autoremove && \
     apt-get -y purge $(dpkg --get-selections | grep deinstall | sed s/deinstall//g) && \
