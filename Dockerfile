@@ -23,16 +23,15 @@ RUN rm -rf /tk4-/hercules/darwin && \
     rm -rf /tk4-/hercules/external_packages_binaries && \
     rm -rf /tk4-/hercules_pre_SDL && \
     rm -rf /tk4-/hercules_SDL && \
-    rm -rf /tk4-/ctca_demo && \
-    rm -f /tk4-/*.bat && \
-    rm -f /tk4-/*pre_SDLt && \
-    rm -f /tk4-/activate && \
+    rm -rf /tk4-/ctca_demo      
+RUN rm -f /tk4-/*.bat 
+RUN rm -f /tk4-/*pre_SDL
+RUN rm -f /tk4-/activate && \
     rm -f /tk4-/deactivate
 RUN apt-get -y purge unzip && \
     apt-get -y autoclean && apt-get -y autoremove && \
     apt-get -y purge $(dpkg --get-selections | grep deinstall | sed s/deinstall//g) && \
     rm -rf /var/lib/apt/lists/*
-RUN dir /tk4-/local_conf/
 
 FROM ubuntu:18.04
 WORKDIR /tk4-/
